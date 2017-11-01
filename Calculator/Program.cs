@@ -16,7 +16,7 @@ using System.Text;
 
 namespace Calculator
 {
-  public enum Operation
+  public enum Operation // supported operations
   {none, add, subtract, multiply, divide};
 
 
@@ -25,7 +25,7 @@ namespace Calculator
 
     // PROPERTIES
 
-    private double currentValue;
+    private double currentValue; // last evaluated value
     public double CurrentValue
     {
       get {return currentValue;}
@@ -36,7 +36,7 @@ namespace Calculator
       }
     }
 
-    private bool hasCurrentValue;
+    private bool hasCurrentValue; // true if evaluated value exists
     public bool HasCurrentValue
     {
       get {return hasCurrentValue;}
@@ -48,7 +48,7 @@ namespace Calculator
       set;
     }
 
-    private Operation currentOperation;
+    private Operation currentOperation; // currently selected operation
     public Operation CurrentOperation
     {
       get {return currentOperation;}
@@ -59,13 +59,13 @@ namespace Calculator
       }
     }
 
-    private StringBuilder inputString;
+    private StringBuilder inputString; // numerical user input
     public string InputString
     {
       get {return inputString.ToString ();}
     }
 
-    private bool inputIsNegative;
+    private bool inputIsNegative; // sign of the numerical user input
     public bool InputIsNegative
     {
       get {return inputIsNegative;}
@@ -73,6 +73,7 @@ namespace Calculator
 
     // METHODS
 
+    // Constructor.
     public Calc ()
     {
       inputString = new StringBuilder ("");
@@ -81,6 +82,7 @@ namespace Calculator
     } // Calc
 
 
+    // Clear the numerical input (set to empty string).
     public void ClearInput ()
     {
       inputString.Clear ();
@@ -88,6 +90,7 @@ namespace Calculator
     } // ClearInput
 
 
+    // Clear input, evaluation and current operation.
     public void ClearCalculation ()
     {
       ClearInput ();
@@ -97,6 +100,7 @@ namespace Calculator
     } // ClearCalculation
 
 
+    // Return the input string and sign as a double.
     double InputToDouble ()
     {
       double output = Convert.ToDouble(inputString.ToString());
@@ -106,6 +110,7 @@ namespace Calculator
     }
 
 
+    // Check if character can be appended to the current input.
     private bool IsValidChar (char c)
     {
       if (c >= '0' && c <= '9')
@@ -118,6 +123,7 @@ namespace Calculator
     } // IsValidChar
 
 
+    // Append character to input string.
     public void AddInputChar (char c)
     {
       if (IsValidChar (c))
@@ -125,11 +131,13 @@ namespace Calculator
     } // AddInputChar
 
 
+    // Toggle the sign of the numerical input.
     public void ToggleSign () {
       inputIsNegative = !inputIsNegative;
     } // ToggleSign
 
 
+    // Evaluate the current equation.
     public void Evaluate ()
     {
       double newValue = InputToDouble ();;
@@ -160,6 +168,7 @@ namespace Calculator
     } // Evaluate
 
     
+    // Save input string to memory, or if empty save evaluated number instead.
     public void SaveMemory ()
     {
       if (InputString.Length > 0)
@@ -174,9 +183,10 @@ namespace Calculator
       {
         Memory = null;
       }
-    }
+    } // SaveMemory
 
 
+    // Load the number from memory and use it as input string.
     public void LoadMemory ()
     {
       if (Memory != null)
@@ -184,14 +194,17 @@ namespace Calculator
         inputString.Clear ();
         inputString.Append (Memory.ToString ());
       }
-    }
+    } // LoadMemory
 
 
+    // Clear the memory.
     public void ClearMemory ()
     {
       Memory = null;
-    }
+    } // ClearMemory
 
+
+    // Process operation/evaluation button press.
     public void HandleButtonPress (Operation op)
     {
       switch (op) {
@@ -223,7 +236,7 @@ namespace Calculator
           break;
       }
     } // HandleButtonPress
-  }
+  } // Calc
 
 
 

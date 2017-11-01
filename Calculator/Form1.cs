@@ -20,6 +20,7 @@ namespace Calculator
     }
 
 
+    // Update the calculator window.
     private void RefreshView ()
     {
       string op = "";
