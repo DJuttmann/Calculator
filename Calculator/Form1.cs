@@ -20,7 +20,7 @@ namespace Calculator
     }
 
 
-    private void refresh ()
+    private void RefreshView ()
     {
       string op = "";
       switch (MainCalculator.CurrentOperation) {
@@ -58,132 +58,138 @@ namespace Calculator
     private void button1_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('1');
-      refresh ();
+      RefreshView ();
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('2');
-      refresh ();
+      RefreshView ();
     }
 
     private void button3_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('3');
-      refresh ();
+      RefreshView ();
     }
 
     private void button4_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('4');
-      refresh ();
+      RefreshView ();
     }
 
     private void button5_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('5');
-      refresh ();
+      RefreshView ();
     }
 
     private void button6_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('6');
-      refresh ();
+      RefreshView ();
     }
 
     private void button7_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('7');
-      refresh ();
+      RefreshView ();
     }
 
     private void button8_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('8');
-      refresh ();
+      RefreshView ();
     }
 
     private void button9_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('9');
-      refresh ();
+      RefreshView ();
     }
 
     private void button0_Click(object sender, EventArgs e)
     {
       MainCalculator.AddInputChar ('0');
-      refresh ();
+      RefreshView ();
     }
 
     private void buttonPlus_Click(object sender, EventArgs e)
     {
       MainCalculator.HandleButtonPress (Operation.add);
-      refresh ();
+      RefreshView ();
     }
 
     private void buttonMinus_Click(object sender, EventArgs e)
     {
       MainCalculator.HandleButtonPress (Operation.subtract);
-      refresh ();
+      RefreshView ();
     }
 
     private void buttonMultiply_Click(object sender, EventArgs e)
     {
       MainCalculator.HandleButtonPress (Operation.multiply);
-      refresh ();
+      RefreshView ();
     }
 
     private void buttonDivide_Click(object sender, EventArgs e)
     {
       MainCalculator.HandleButtonPress (Operation.divide);
-      refresh ();
+      RefreshView ();
     }
 
     private void evaluate_Click(object sender, EventArgs e)
     {
       MainCalculator.HandleButtonPress (Operation.none);
-      refresh ();
+      RefreshView ();
     }
 
     private void buttonC_Click(object sender, EventArgs e)
     {
       MainCalculator.ClearInput ();
-      refresh ();
+      RefreshView ();
     }
 
     private void buttonCA_Click(object sender, EventArgs e)
     {
       MainCalculator.ClearCalculation ();
-      refresh ();
+      RefreshView ();
     }
 
     private void buttonSave_Click(object sender, EventArgs e)
     {
       MainCalculator.SaveMemory ();
-      refresh ();
+      RefreshView ();
     }
 
     private void buttonLoad_Click(object sender, EventArgs e)
     {
       MainCalculator.LoadMemory ();
-      refresh ();
+      RefreshView ();
     }
 
     private void buttonClearMem_Click(object sender, EventArgs e)
     {
       MainCalculator.ClearMemory ();
-      refresh ();
+      RefreshView ();
     }
 
     private void Form1_Load(object sender, EventArgs e)
     {
-      refresh ();
+      RefreshView ();
     }
 
     private void button10_Click(object sender, EventArgs e)
     {
       MainCalculator.ToggleSign ();
-      refresh ();
+      RefreshView ();
+    }
+
+    private void decimalPoint_Click(object sender, EventArgs e)
+    {
+      MainCalculator.AddInputChar ('.');
+      RefreshView ();
     }
   }
 }

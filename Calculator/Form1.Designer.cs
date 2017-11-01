@@ -165,6 +165,7 @@
       this.decimalPoint.TabIndex = 10;
       this.decimalPoint.Text = ".";
       this.decimalPoint.UseVisualStyleBackColor = true;
+      this.decimalPoint.Click += new System.EventHandler(this.decimalPoint_Click);
       // 
       // evaluate
       // 
@@ -180,6 +181,7 @@
       // 
       this.inputField.Location = new System.Drawing.Point(15, 45);
       this.inputField.Name = "inputField";
+      this.inputField.ReadOnly = true;
       this.inputField.Size = new System.Drawing.Size(277, 22);
       this.inputField.TabIndex = 12;
       // 

@@ -110,8 +110,10 @@ namespace Calculator
     {
       if (c >= '0' && c <= '9')
         return true;
-      if (c == '.')
-        return true; // [wip] add check for multiple points in input
+      if (c == '.') {
+        if (inputString.ToString ().IndexOf ('.') == -1)
+          return true; // only valid character if no decimal point in input yet.
+      }
       return false;
     } // IsValidChar
 
