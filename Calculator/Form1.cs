@@ -192,5 +192,11 @@ namespace Calculator
       MainCalculator.AddInputChar ('.');
       RefreshView ();
     }
+
+    private void buttonPercent_Click(object sender, EventArgs e)
+    {
+      MainCalculator.ApplyPercentage ();
+      RefreshView ();
+    }
   }
 }

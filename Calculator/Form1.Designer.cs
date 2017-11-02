@@ -54,6 +54,7 @@
       this.buttonCA = new System.Windows.Forms.Button();
       this.labelMemory = new System.Windows.Forms.Label();
       this.buttonSign = new System.Windows.Forms.Button();
+      this.buttonPercent = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // button1
@@ -310,11 +311,22 @@
       this.buttonSign.UseVisualStyleBackColor = true;
       this.buttonSign.Click += new System.EventHandler(this.button10_Click);
       // 
+      // buttonPercent
+      // 
+      this.buttonPercent.Location = new System.Drawing.Point(15, 256);
+      this.buttonPercent.Name = "buttonPercent";
+      this.buttonPercent.Size = new System.Drawing.Size(58, 23);
+      this.buttonPercent.TabIndex = 26;
+      this.buttonPercent.Text = "%";
+      this.buttonPercent.UseVisualStyleBackColor = true;
+      this.buttonPercent.Click += new System.EventHandler(this.buttonPercent_Click);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(312, 420);
+      this.Controls.Add(this.buttonPercent);
       this.Controls.Add(this.buttonSign);
       this.Controls.Add(this.labelMemory);
       this.Controls.Add(this.buttonCA);
@@ -377,6 +389,7 @@
     private System.Windows.Forms.Button buttonCA;
     private System.Windows.Forms.Label labelMemory;
     private System.Windows.Forms.Button buttonSign;
+    private System.Windows.Forms.Button buttonPercent;
   }
 }
 

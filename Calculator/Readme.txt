@@ -6,7 +6,7 @@ License: GNU General Public License 3.0 (https://www.gnu.org/licenses/gpl-3.0.en
 
 Features:
 - Floating point arithmetic.
-- Basic operations: + - * /
+- Basic operations: + - * / %
 - Memory: save result from calculation or current input value.
 
 ==========================================================================================

@@ -103,6 +103,8 @@ namespace Calculator
     // Return the input string and sign as a double.
     double InputToDouble ()
     {
+      if (inputString.ToString() == ".")
+        return 0; // "." is interpreted as 0.
       double output = Convert.ToDouble(inputString.ToString());
       if (inputIsNegative)
         output = -output;
@@ -132,10 +134,24 @@ namespace Calculator
 
 
     // Toggle the sign of the numerical input.
-    public void ToggleSign () {
+    public void ToggleSign ()
+    {
       inputIsNegative = !inputIsNegative;
     } // ToggleSign
 
+
+    // Replace input value with percentage of evaluation.
+    public void ApplyPercentage ()
+    {
+      if (hasCurrentValue && inputString.Length > 0)
+      {
+        double percentage = InputToDouble () / 100.0;
+        percentage *= currentValue;
+        inputString.Clear ();
+        inputString.Append (percentage.ToString ());
+      }
+    }
+    
 
     // Evaluate the current equation.
     public void Evaluate ()
@@ -191,8 +207,15 @@ namespace Calculator
     {
       if (Memory != null)
       {
+        double absMemory = (double) Memory;
         inputString.Clear ();
-        inputString.Append (Memory.ToString ());
+        if (absMemory < 0.0) {
+          absMemory = -absMemory;
+          inputIsNegative = true;
+        }
+        else
+          inputIsNegative = false;
+        inputString.Append (absMemory.ToString ());
       }
     } // LoadMemory
 
